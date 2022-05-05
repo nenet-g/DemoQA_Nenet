@@ -1,19 +1,6 @@
+from selenium import webdriver
 from Pages.BasePage import BasePage
 import pytest
-from selenium import webdriver
-
-
-def __init__(self, driver):
-    BasePage.__init__(self, driver)
-
-
-@pytest.fixture()
-def set_up(self):
-    path = 'driver/chromedriver.exe'
-    self.driver = webdriver.Chrome(path)
-    self.driver.maximize_window()
-    yield
-    self.driver.close()
 
 
 # ---------------TEST CASE VARIABLES-----------------
@@ -24,7 +11,7 @@ address1 = "Current Address"
 address2 = "Permanent Address"
 
 
-@pytest.mark.usefixtures('set_up')
+@pytest.mark.usefixtures('init_driver')
 class TestRegisterFlow:
     def test_positive_register(self):
         obj = BasePage(self.driver)
