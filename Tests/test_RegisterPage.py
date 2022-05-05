@@ -11,7 +11,7 @@ address1 = "Current Address"
 address2 = "Permanent Address"
 
 
-@pytest.mark.usefixtures('driver')
+@pytest.mark.usefixtures('init_driver')
 class TestRegisterFlow:
     def test_positive_register(self):
         obj = BasePage(self.driver)
